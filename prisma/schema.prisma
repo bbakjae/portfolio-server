@@ -1,0 +1,35 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = []
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id       Int      @id @default(autoincrement())
+  loginId  String   @map("login_id") @db.VarChar(50)
+  password String   @db.VarChar(60)
+  joinedAt DateTime @default(now()) @map("joined_at") @db.DateTime(0)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model introdution {
+  name    String @db.VarChar(5)
+  hopeHob String @map("hope_hob") @db.VarChar(50)
+
+  @@ignore
+}
+
+model project {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(20)
+  content   String   @db.VarChar(100)
+  part      String   @db.Text
+  techStack String?  @map("tech_stack") @db.Text
+  startAt   DateTime @map("start_at") @db.DateTime(0)
+  endAt     DateTime @map("end_at") @db.DateTime(0)
+  image     String   @default("default_project.png") @db.Text
+}
