@@ -24,12 +24,11 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
-  Query: {};
-  User: { // root type
-    id?: number | null; // Int
-    loginId?: string | null; // String
-    password?: string | null; // String
+  MyInfo: { // root type
+    description: string; // String!
+    name: string; // String!
   }
+  Query: {};
 }
 
 export interface NexusGenInterfaces {
@@ -43,24 +42,22 @@ export type NexusGenRootTypes = NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
+  MyInfo: { // field return type
+    description: string; // String!
+    name: string; // String!
+  }
   Query: { // field return type
     ok: boolean; // Boolean!
-  }
-  User: { // field return type
-    id: number | null; // Int
-    loginId: string | null; // String
-    password: string | null; // String
   }
 }
 
 export interface NexusGenFieldTypeNames {
+  MyInfo: { // field return type name
+    description: 'String'
+    name: 'String'
+  }
   Query: { // field return type name
     ok: 'Boolean'
-  }
-  User: { // field return type name
-    id: 'Int'
-    loginId: 'String'
-    password: 'String'
   }
 }
 
