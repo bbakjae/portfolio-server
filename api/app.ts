@@ -7,10 +7,12 @@ import express from "express";
 import * as HTTP from "http";
 import { join } from "path";
 import { githubCallbackHandler } from "./github";
+import { createContext } from "./context";
 
 const apollo = new ApolloServer({
     schema: schema,
     debug: true,
+    context: createContext,
 });
 
 const PORT = process.env.PORT || "3000";

@@ -8,22 +8,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
+model User {
   id       Int      @id @default(autoincrement())
   loginId  String   @map("login_id") @db.VarChar(50)
   password String   @db.VarChar(60)
   joinedAt DateTime @default(now()) @map("joined_at") @db.DateTime(0)
+
+  @@map("user")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model introdution {
-  name    String @db.VarChar(5)
-  hopeHob String @map("hope_hob") @db.VarChar(50)
-
-  @@ignore
-}
-
-model project {
+model Project {
   id        Int      @id @default(autoincrement())
   title     String   @db.VarChar(20)
   content   String   @db.VarChar(100)
@@ -32,4 +26,17 @@ model project {
   startAt   DateTime @map("start_at") @db.DateTime(0)
   endAt     DateTime @map("end_at") @db.DateTime(0)
   image     String   @default("default_project.png") @db.Text
+
+  @@map("project")
+}
+
+model Introdution {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(5)
+  nickname    String   @db.VarChar(20)
+  description String   @db.Text
+  birth       DateTime @db.Date
+  hobby       String   @db.Text
+  techStack   String   @map("tech_stack") @db.Text
+	@@map("introdution")
 }

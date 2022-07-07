@@ -1,14 +1,14 @@
 import { PrismaClient } from "@prisma/client";
-import { Token } from "graphql";
+import { IJWTTokenType } from "./context";
 
 export { FileUpload } from "graphql-upload";
 
 export interface Context {
     prisma: PrismaClient;
-    req: Request;
+    // req: Request;
     // connection?: ExecutionParams;
-    res: Response;
+    // res: Response;
     // pubsub: PubSub;
-    token: Token | null;
+    token: IJWTTokenType | null;
     tokenString: string | null;
 }

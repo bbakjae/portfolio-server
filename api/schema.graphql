@@ -3,10 +3,19 @@
 
 
 type MyInfo {
+  availableLanguage: [String!]!
   description: String!
   name: String!
+  projects: [Project!]!
+}
+
+type Project {
+  description: String!
+  part: [String!]!
+  techStack: [String!]!
+  title: String!
 }
 
 type Query {
-  ok: Boolean!
+  introduceMySelf: MyInfo
 }
