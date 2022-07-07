@@ -30,8 +30,6 @@ export const createContext = async (ctx: ExpressContext): Promise<Context> => {
         token = null;
     }
     return {
-        // req: ctx.req,
-        // res: ctx.res,
         prisma,
         token,
         tokenString,

@@ -28,12 +28,10 @@ export interface NexusGenObjects {
     availableLanguage: string[]; // [String!]!
     description: string; // String!
     name: string; // String!
-    projects: NexusGenRootTypes['Project'][]; // [Project!]!
   }
   Project: { // root type
     description: string; // String!
     part: string[]; // [String!]!
-    techStack: string[]; // [String!]!
     title: string; // String!
   }
   Query: {};
