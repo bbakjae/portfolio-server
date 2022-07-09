@@ -24,10 +24,10 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
-  MyInfo: { // root type
-    availableLanguage: string[]; // [String!]!
+  Introduction: { // root type
     description: string; // String!
     name: string; // String!
+    nickname: string; // String!
   }
   Project: { // root type
     content: string; // String!
@@ -48,11 +48,14 @@ export type NexusGenRootTypes = NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
-  MyInfo: { // field return type
-    availableLanguage: string[]; // [String!]!
+  Introduction: { // field return type
+    birth: string; // String!
     description: string; // String!
+    language: string[]; // [String!]!
     name: string; // String!
+    nickname: string; // String!
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
+    techStack: string[]; // [String!]!
   }
   Project: { // field return type
     content: string; // String!
@@ -64,16 +67,20 @@ export interface NexusGenFieldTypes {
     title: string; // String!
   }
   Query: { // field return type
-    introduceMySelf: NexusGenRootTypes['MyInfo'] | null; // MyInfo
+    getProjects: NexusGenRootTypes['Project'][]; // [Project!]!
+    introduceMySelf: NexusGenRootTypes['Introduction'] | null; // Introduction
   }
 }
 
 export interface NexusGenFieldTypeNames {
-  MyInfo: { // field return type name
-    availableLanguage: 'String'
+  Introduction: { // field return type name
+    birth: 'String'
     description: 'String'
+    language: 'String'
     name: 'String'
+    nickname: 'String'
     projects: 'Project'
+    techStack: 'String'
   }
   Project: { // field return type name
     content: 'String'
@@ -85,7 +92,8 @@ export interface NexusGenFieldTypeNames {
     title: 'String'
   }
   Query: { // field return type name
-    introduceMySelf: 'MyInfo'
+    getProjects: 'Project'
+    introduceMySelf: 'Introduction'
   }
 }
 

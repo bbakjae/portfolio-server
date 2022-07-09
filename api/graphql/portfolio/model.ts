@@ -13,6 +13,7 @@ export const Project = objectType({
             resolve: async (src, args, ctx, info) => {
                 try {
                     if (src.part) return JSON.parse(src.part);
+                    return [];
                 } catch (e) {
                     return [];
                 }
@@ -49,12 +50,42 @@ export const Project = objectType({
     },
 });
 
-export const MyInfo = objectType({
-    name: "MyInfo",
+export const Introduction = objectType({
+    name: "Introduction",
     definition(t) {
         t.nonNull.string("name");
         t.nonNull.string("description");
-        t.nonNull.list.nonNull.string("availableLanguage");
+        t.nonNull.string("nickname");
+        t.nonNull.string("birth", {
+            resolve: async (src, args, ctx, info) => {
+                try {
+                    return format(src.birth as Date, "yyyy년 MM월 dd일");
+
+                } catch (e) {
+                    return "";
+                }
+            }
+        });
+        t.nonNull.list.nonNull.string("techStack", {
+            resolve: async (src, args, ctx, info) => {
+                try {
+                    if (src.techStack) return JSON.parse(src.techStack);
+                    return [];
+                } catch (e) {
+                    throw [];
+                }
+            },
+        });
+        t.nonNull.list.nonNull.string("language", {
+            resolve: async (src, args, ctx, info) => {
+                try {
+                    if (src.language) return JSON.parse(src.language);
+                    return [];
+                } catch (e) {
+                    throw [];
+                }
+            },
+        });
         t.nonNull.list.nonNull.field("projects", {
             type: "Project",
             resolve: async (src, args, ctx, info) => {

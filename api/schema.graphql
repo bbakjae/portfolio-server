@@ -2,11 +2,14 @@
 ### Do not make changes to this file directly
 
 
-type MyInfo {
-  availableLanguage: [String!]!
+type Introduction {
+  birth: String!
   description: String!
+  language: [String!]!
   name: String!
+  nickname: String!
   projects: [Project!]!
+  techStack: [String!]!
 }
 
 type Project {
@@ -20,5 +23,6 @@ type Project {
 }
 
 type Query {
-  introduceMySelf: MyInfo
+  getProjects: [Project!]!
+  introduceMySelf: Introduction
 }

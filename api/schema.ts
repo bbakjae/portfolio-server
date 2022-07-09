@@ -1,5 +1,5 @@
 import { makeSchema } from "nexus";
-import {} from "nexus-prisma";
+import { } from "nexus-prisma";
 import { join } from "path";
 import * as modelType from "./graphql";
 

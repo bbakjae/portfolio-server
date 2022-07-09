@@ -1,5 +1,5 @@
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -34,9 +34,10 @@ model Introdution {
   name        String   @db.VarChar(5)
   nickname    String   @db.VarChar(20)
   description String   @db.Text
-  birth       DateTime @db.Date
+  birth       DateTime @db.DateTime(0)
   hobby       String   @db.Text
   techStack   String   @map("tech_stack") @db.Text
+  language    String   @db.Text
 
   @@map("introdution")
 }
