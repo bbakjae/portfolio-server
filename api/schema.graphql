@@ -4,6 +4,7 @@
 
 type Introduction {
   birth: String!
+  businessItems(password: String): businessItem
   description: String!
   language: [String!]!
   name: String!
@@ -25,4 +26,10 @@ type Project {
 type Query {
   getProjects: [Project!]!
   introduceMySelf: Introduction
+}
+
+"""사업 아이템"""
+type businessItem {
+  description: String!
+  title: String!
 }

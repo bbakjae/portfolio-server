@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { objectType } from "nexus";
+import { objectType, stringArg } from "nexus";
 import { prisma } from "../../context";
 
 
@@ -97,5 +97,37 @@ export const Introduction = objectType({
                 }
             },
         });
+        t.field("businessItems", {
+            type: "businessItem",
+            args: {
+                password: stringArg()
+            },
+            resolve: async (src, args, ctx, info) => {
+                try {
+                    const wrongAnswer = {
+                        title: "비밀입니다.",
+                        description: "password를 입력해주세요."
+                    };
+                    if (!args.password) return wrongAnswer;
+                    if (process.env.ITEM_PASSWORD === args.password) return {
+                        title: process.env.ITEM_TITLE,
+                        description: process.env.ITEM_DESCRIPTION
+                    };
+                    return wrongAnswer;
+                } catch (e) {
+                    return null;
+                }
+            }
+        });
     },
+});
+
+
+export const tbusinessItem = objectType({
+    description: "사업 아이템",
+    name: "businessItem",
+    definition(t) {
+        t.nonNull.string("title");
+        t.nonNull.string("description");
+    }
 });

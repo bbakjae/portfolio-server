@@ -35,6 +35,10 @@ export interface NexusGenObjects {
     title: string; // String!
   }
   Query: {};
+  businessItem: { // root type
+    description: string; // String!
+    title: string; // String!
+  }
 }
 
 export interface NexusGenInterfaces {
@@ -50,6 +54,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 export interface NexusGenFieldTypes {
   Introduction: { // field return type
     birth: string; // String!
+    businessItems: NexusGenRootTypes['businessItem'] | null; // businessItem
     description: string; // String!
     language: string[]; // [String!]!
     name: string; // String!
@@ -70,11 +75,16 @@ export interface NexusGenFieldTypes {
     getProjects: NexusGenRootTypes['Project'][]; // [Project!]!
     introduceMySelf: NexusGenRootTypes['Introduction'] | null; // Introduction
   }
+  businessItem: { // field return type
+    description: string; // String!
+    title: string; // String!
+  }
 }
 
 export interface NexusGenFieldTypeNames {
   Introduction: { // field return type name
     birth: 'String'
+    businessItems: 'businessItem'
     description: 'String'
     language: 'String'
     name: 'String'
@@ -95,9 +105,18 @@ export interface NexusGenFieldTypeNames {
     getProjects: 'Project'
     introduceMySelf: 'Introduction'
   }
+  businessItem: { // field return type name
+    description: 'String'
+    title: 'String'
+  }
 }
 
 export interface NexusGenArgTypes {
+  Introduction: {
+    businessItems: { // args
+      password?: string | null; // String
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {
