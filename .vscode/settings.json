@@ -1,3 +1,38 @@
 {
-    "cSpell.words": ["IJWT"]
-}
+    "workbench.colorTheme": "Default Dark+",
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "bracketPairColorizer.depreciation-notice": false,
+    "gitlens.advanced.messages": {
+      "suppressGitMissingWarning": true
+    },
+    "editor.formatOnSave": true,
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert",
+    "editor.fontFamily": "D2CodingBold",
+    "terminal.integrated.fontFamily": "monospace",
+    "tabnine.experimentalAutoImports": true,
+    "git.autofetch": true,
+    "python.formatting.provider": "black",
+    "reactSnippets.settings.prettierEnabled": true,
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSaveMode": "file",
+    "typescript.format.insertSpaceAfterTypeAssertion": true,
+    "prettier.enable": true,
+    "prettier.resolveGlobalModules": true,
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+  
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontWeight": "normal",
+    "prettier.trailingComma": "all",
+    "prettier.tabWidth": 4,
+    "prettier.semi": true,
+    "prettier.singleQuote": false,
+    "prettier.printWidth": 120,
+    "prettier.bracketSpacing": true,
+    "prettier.arrowParens": "always"
+  }
+  

@@ -30,8 +30,8 @@ export interface NexusGenObjects {
     name: string; // String!
   }
   Project: { // root type
-    description: string; // String!
-    part: string[]; // [String!]!
+    content: string; // String!
+    id: number; // Int!
     title: string; // String!
   }
   Query: {};
@@ -55,8 +55,11 @@ export interface NexusGenFieldTypes {
     projects: NexusGenRootTypes['Project'][]; // [Project!]!
   }
   Project: { // field return type
-    description: string; // String!
+    content: string; // String!
+    endAt: string; // String!
+    id: number; // Int!
     part: string[]; // [String!]!
+    startAt: string; // String!
     techStack: string[]; // [String!]!
     title: string; // String!
   }
@@ -73,8 +76,11 @@ export interface NexusGenFieldTypeNames {
     projects: 'Project'
   }
   Project: { // field return type name
-    description: 'String'
+    content: 'String'
+    endAt: 'String'
+    id: 'Int'
     part: 'String'
+    startAt: 'String'
     techStack: 'String'
     title: 'String'
   }

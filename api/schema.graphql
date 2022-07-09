@@ -10,8 +10,11 @@ type MyInfo {
 }
 
 type Project {
-  description: String!
+  content: String!
+  endAt: String!
+  id: Int!
   part: [String!]!
+  startAt: String!
   techStack: [String!]!
   title: String!
 }
