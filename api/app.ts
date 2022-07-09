@@ -15,7 +15,6 @@ const apollo = new ApolloServer({
     debug: true,
     context: createContext,
     plugins: [
-        ApolloServerPluginLandingPageGraphQLPlayground(),
     ]
 });
 
