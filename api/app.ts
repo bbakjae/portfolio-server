@@ -2,6 +2,7 @@ import { config } from "dotenv";
 config();
 
 import { ApolloServer } from "apollo-server-express";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import schema from "./schema";
 import express from "express";
 import * as HTTP from "http";
@@ -13,6 +14,9 @@ const apollo = new ApolloServer({
     schema: schema,
     debug: true,
     context: createContext,
+    plugins: [
+        ApolloServerPluginLandingPageGraphQLPlayground(),
+    ]
 });
 
 const PORT = process.env.PORT || "3000";
